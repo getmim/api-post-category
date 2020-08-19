@@ -80,7 +80,7 @@ class CategoryController extends \Api\Controller
         if($pages){
             $post_ids = array_column($pages, 'post');
             $posts = Post::get(['id'=>$post_ids], 0, 1, ['created'=>false]);
-            $posts = Formatter::formatMany('post', $posts, ['user','publisher','category']);
+            $posts = Formatter::formatMany('post', $posts, ['user','category']);
 
             foreach($posts as &$pg)
                 unset($pg->meta);
